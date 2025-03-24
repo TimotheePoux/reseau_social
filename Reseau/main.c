@@ -22,6 +22,8 @@ int main() {
 		}
 	}
 
+	libereUser(listeUsers->premier);
+	free(listeUsers);
 
 	return 0;
 }
