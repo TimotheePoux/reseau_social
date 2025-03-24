@@ -1,6 +1,5 @@
 #include "header.h"
 
-
 User* createUser(Liste* liste) {
 	User* newUser = malloc(sizeof(User));
 	if (!newUser) {
@@ -13,7 +12,7 @@ User* createUser(Liste* liste) {
 		if (verifId(liste, newUser->id) == 1) {
 			break;
 		}
-		printf("Identifiant déjà utilise !\n");
+		printf("Identifiant deja utilise !\n");
 	}
 	printf("Entrez un pseudo: ");
 	scanf_s("%s", newUser->pseudo, 50);
@@ -24,13 +23,21 @@ User* createUser(Liste* liste) {
 	liste->premier = newUser;
 }
 
-int verifId(Liste* liste, char pseudo[50]) {
+int verifId(Liste* liste, char identifiant[50]) {
 	User* utilisateur = liste->premier;
-	while (utilisateur->suivant != NULL) {
-		if (utilisateur->pseudo == pseudo) {
+	while (utilisateur != NULL) {
+		if (strcmp(utilisateur->id, identifiant) == 0) {
 			return 0;
 		}
 		utilisateur = utilisateur->suivant;
 	}
 	return 1;
+}
+
+void afficheUsers(Liste* liste) {
+	User* utilisateur = liste->premier;
+	while (utilisateur != NULL) {
+		printf("-> %s (@%s)\n", utilisateur->pseudo, utilisateur->id);
+		utilisateur = utilisateur->suivant;
+	}
 }
