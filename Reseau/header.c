@@ -66,6 +66,7 @@ void ajoutAmi(Liste* liste) {
 			User* utilisateur2 = liste->premier;
 			while (utilisateur2 != NULL) {
 				if (strcmp(utilisateur2->id, ajouteur) == 0) {
+					strcpy_s(newAmi->id, 50, ajoute);
 					newAmi->suivant = utilisateur2->amis;
 					utilisateur2->amis = newAmi;
 					printf("Ami ajoute !\n");
