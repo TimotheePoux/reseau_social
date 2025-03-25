@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct Publication;
-
 typedef struct {
 	char texte[280];
 	struct Publication* suivant;
@@ -28,6 +26,6 @@ void createUser(Liste* liste);
 int verifId(Liste* liste, char identifiant[50]);
 void afficheUsers(Liste* liste);
 void libereUser(User* user);
-void liberePubli(Publication* publication);
+void liberePubli(struct Publication* publication);
 
 #endif

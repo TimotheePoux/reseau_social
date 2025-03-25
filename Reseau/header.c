@@ -3,7 +3,7 @@
 void createUser(Liste* liste) {
 	User* newUser = malloc(sizeof(User));
 	if (!newUser) {
-		return NULL;
+		return;
 	}
 	while (1) {
 		printf("Entrez un identifiant: ");
@@ -18,8 +18,9 @@ void createUser(Liste* liste) {
 	scanf_s("%s", newUser->pseudo, 50);
 	getchar();
 	newUser->publication = malloc(sizeof(Publication));
-	Publication* publi = newUser->publication;
-	strcpy_s(publi->texte, 280, " ");
+	newUser->publication = NULL;
+	//Publication* publi = newUser->publication;
+	//strcpy_s(publi->texte, 280, " ");
 	newUser->suivant = liste->premier;
 	liste->premier = newUser;
 }
@@ -52,7 +53,7 @@ void libereUser(User* user) {
 }
 
 void liberePubli(Publication* publication) {
-	if (publication->suivant != NULL) {
+	if (publication != NULL) {
 		liberePubli(publication->suivant);
 	}
 	free(publication);
