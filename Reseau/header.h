@@ -8,24 +8,34 @@
 typedef struct {
 	char texte[280];
 	struct Publication* suivant;
-}Publication;
+} Publication;
+
+typedef struct {
+	char id[50];
+	struct Ami* suivant;
+} Ami;
 
 typedef struct {
 	char id[50];
 	char pseudo[50];
 	struct Publication* publication;
-	struct User** amis;
+	struct Ami* amis;
 	struct User* suivant;
-}User;
+} User;
 
 typedef struct {
 	struct User* premier;
-}Liste;
+} Liste;
 
 void createUser(Liste* liste);
 int verifId(Liste* liste, char identifiant[50]);
+void ajoutAmi(Liste* liste);
+void createPublication(Liste* liste);
 void afficheUsers(Liste* liste);
+void afficheAmis(Liste* liste);
+void afficherProfil(User* utilisateur);
 void libereUser(User* user);
-void liberePubli(struct Publication* publication);
+void liberePubli(Publication* publication);
+void libereAmi(Ami* ami);
 
 #endif
