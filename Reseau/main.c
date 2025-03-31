@@ -6,7 +6,7 @@ int main() {
 	int choix = 0;
 	int stop = 0;
 	while (stop == 0) {
-		printf("\n---SIGMASPHERE---\n1- Ajouter un utilisateur\n2- Ajouter un ami\n3- Supprimer un ami X\n4- Publier un message\n5- Afficher les utilisateurs\n6- Afficher une liste d'amis\n7- Afficher un profil\n8- Quitter\n");
+		printf("\n---SIGMASPHERE---\n1- Ajouter un utilisateur\n2- Ajouter un ami\n3- Publier un message\n4- Afficher les utilisateurs\n5- Afficher une liste d'amis\n6- Afficher un profil\n7- Quitter\n");
 		scanf_s("%d", &choix);
 		getchar();
 		switch (choix) {
@@ -16,19 +16,19 @@ int main() {
 		case 2:
 			ajoutAmi(listeUsers);
 			break;
-		case 4:
+		case 3:
 			createPublication(listeUsers);
 			break;
-		case 5:
+		case 4:
 			afficheUsers(listeUsers);
 			break;
-		case 6:
+		case 5:
 			afficheAmis(listeUsers);
 			break;
-		case 7:
+		case 6:
 			afficherProfil(listeUsers);
 			break;
-		case 8:
+		case 7:
 			stop = 1;
 			break;
 		}
